@@ -1,0 +1,26 @@
+# Copyright 2021 The Periph Authors. All rights reserved.
+# Use of this source code is governed under the Apache License, Version 2.0
+# that can be found in the LICENSE file.
+
+periphhome:
+  name: "fake"
+
+api:
+  port: 6053
+
+binary_sensor:
+  - platform: fake
+    name: "fake binary"
+
+camera:
+  - platform: fake
+    name: "fake camera"
+
+light:
+  - platform: fake
+    name: "fake light"
+
+sensor:
+  - platform: fake
+    name: "fake sensor"
+    update_interval: 60s

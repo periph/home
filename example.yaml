@@ -1,0 +1,46 @@
+# The format is inspired by esphome.io but differs at a few places.
+#
+# Hopefully if you are familiar with ESPHome, you should pick up quickly.
+#
+# The file format documentation is at
+# https://pkg.go.dev/periph.io/x/home/node/config
+
+periphhome:
+  name: pi
+  comment: pi device
+
+api:
+  port: 6053
+  password: "Foo"
+
+binary_sensor:
+  - platform: gpio
+    name: "Motion sensor"
+    device_class: motion
+    pin:
+      number: GPIO17
+      inverted: true
+      mode: INPUT_PULLUP
+
+camera:
+  - platform: raspivid
+    name: "RPi Camera"
+
+light:
+  - platform: apa102
+    name: "Bright lights"
+    num_leds: 150
+
+sensor:
+  - platform: bme280
+    address: 0x76
+    update_interval: 60s
+    temperature:
+      name: "Temperature"
+    pressure:
+      name: "Pressure"
+    humidity:
+      name: "Humidity"
+  - platform: wifi_signal
+    name: "Foo Wifi Signal"
+    update_interval: 60s
