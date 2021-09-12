@@ -41,17 +41,17 @@ func (l *lightFake) init(ctx context.Context, n *Node) error {
 
 func (l *lightFake) describe() proto.Message {
 	return &aioesphomeapi.ListEntitiesLightResponse{
-		ObjectId:                 l.objectID,
-		Key:                      l.key,
-		Name:                     l.name,
-		UniqueId:                 l.uniqueID,
-		SupportsBrightness:       false,
-		SupportsRgb:              false,
-		SupportsWhiteValue:       false,
-		SupportsColorTemperature: false,
-		MinMireds:                0,
-		MaxMireds:                0,
-		Effects:                  nil,
+		ObjectId:                       l.objectID,
+		Key:                            l.key,
+		Name:                           l.name,
+		UniqueId:                       l.uniqueID,
+		LegacySupportsBrightness:       false,
+		LegacySupportsRgb:              false,
+		LegacySupportsWhiteValue:       false,
+		LegacySupportsColorTemperature: false,
+		MinMireds:                      0,
+		MaxMireds:                      0,
+		Effects:                        nil,
 	}
 }
 

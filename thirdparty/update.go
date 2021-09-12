@@ -78,9 +78,12 @@ func updateProtos(d string) error {
 	}
 
 	if command("protoc-gen-go", "--version").Run() != nil {
-		if err = command("go", "install", "google.golang.org/protobuf/cmd/protoc-gen-go@latest").Run(); err != nil {
-			// Currently v1.26.0
-			return errors.New("protoc-gen-go is needed. Run: go install google.golang.org/protobuf/cmd/protoc-gen-go@latest\n")
+		// TODO(maruel): Check that the current version matches. Using @latest
+		// means that GitHub Actions checks will always be broken when a new
+		// protobuf version is released.
+		const url = "google.golang.org/protobuf/cmd/protoc-gen-go@v1.27.1"
+		if err = command("go", "install", url).Run(); err != nil {
+			return errors.New("protoc-gen-go is needed. Run: go install " + url + "\n")
 		}
 	}
 	args := []string{

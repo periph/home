@@ -68,17 +68,17 @@ func (l *lightAPA102) init(ctx context.Context, n *Node) error {
 func (l *lightAPA102) describe() proto.Message {
 	// TODO(maruel): Add mireds limits and effects.
 	return &aioesphomeapi.ListEntitiesLightResponse{
-		ObjectId:                 l.objectID,
-		Key:                      l.key,
-		Name:                     l.name,
-		UniqueId:                 l.uniqueID,
-		SupportsBrightness:       true,
-		SupportsRgb:              true,
-		SupportsWhiteValue:       false,
-		SupportsColorTemperature: true,
-		MinMireds:                0,
-		MaxMireds:                0,
-		Effects:                  nil,
+		ObjectId:                       l.objectID,
+		Key:                            l.key,
+		Name:                           l.name,
+		UniqueId:                       l.uniqueID,
+		LegacySupportsBrightness:       true,
+		LegacySupportsRgb:              true,
+		LegacySupportsWhiteValue:       false,
+		LegacySupportsColorTemperature: true,
+		MinMireds:                      0,
+		MaxMireds:                      0,
+		Effects:                        nil,
 	}
 }
 
