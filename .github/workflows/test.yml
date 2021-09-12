@@ -210,9 +210,6 @@ jobs:
         fi
 
   test_short:
-    env:
-      GOPATH: ${{github.workspace}}
-      GO111MODULE: auto
     continue-on-error: true
     strategy:
       fail-fast: false
@@ -226,11 +223,5 @@ jobs:
       with:
         go-version: "${{matrix.gover}}"
     - uses: actions/checkout@v2
-      with:
-        path: src/periph.io/x/home
-    - name: 'Check: go get -d -t'
-      working-directory: src/periph.io/x/home
-      run: go get -d -t ./...
     - name: 'Check: go test'
-      working-directory: src/periph.io/x/home
       run: go test -timeout=40s ./...
