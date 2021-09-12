@@ -28,7 +28,7 @@ import (
 func autoCancellingContext(cfg string) (context.Context, func(), error) {
 	// Cancel on SIGTERM / SIGINT.
 	ctx, cancel := context.WithCancel(context.Background())
-	chanSignal := make(chan os.Signal)
+	chanSignal := make(chan os.Signal, 1)
 	go func() {
 		<-chanSignal
 		cancel()
