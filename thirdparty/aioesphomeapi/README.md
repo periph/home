@@ -1,3 +1,3 @@
 URL: https://github.com/esphome/aioesphomeapi
 LICENSE: MIT
-Version: v9.0.0
+Version: v10.10.0

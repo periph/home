@@ -136,6 +136,7 @@ func mainImpl() error {
 		return err
 	}
 
+	/* #nosec G304 */
 	b, err := ioutil.ReadFile(configFile)
 	if err != nil {
 		return err

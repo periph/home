@@ -65,6 +65,7 @@ func (c *cameraFake) init(ctx context.Context, n *Node) error {
 
 	if c.directory != "" {
 		if fi, err := os.Stat(c.directory); os.IsNotExist(err) {
+			/* #nosec G301 */
 			if err = os.MkdirAll(c.directory, 0o755); err != nil {
 				return err
 			}
@@ -191,6 +192,7 @@ func (c *cameraFake) onNewPicture(b []byte) error {
 	n := fmt.Sprintf("i%010d.jpg", c.index)
 	//log.Printf("saving %s %d bytes", n, len(b))
 	if c.directory != "" {
+		/* #nosec G306 */
 		if err := ioutil.WriteFile(filepath.Join(c.directory, n), b, 0o644); err != nil {
 			return err
 		}

@@ -80,6 +80,7 @@ func (c *cameraRaspivid) init(ctx context.Context, n *Node) error {
 		}
 
 		if fi, err := os.Stat(c.directory); os.IsNotExist(err) {
+			/* #nosec G301 */
 			if err = os.MkdirAll(c.directory, 0o755); err != nil {
 				return err
 			}
@@ -91,6 +92,7 @@ func (c *cameraRaspivid) init(ctx context.Context, n *Node) error {
 	ctx, c.cancel = context.WithCancel(ctx)
 	// We use raw format so we can embed a timestamp and compress to JPEG, since
 	// it's what the ESPHome protocol expects.
+	/* #nosec G204 */
 	c.cmd = exec.CommandContext(
 		ctx,
 		"raspivid",
